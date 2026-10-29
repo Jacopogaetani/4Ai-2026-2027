@@ -1,11 +1,17 @@
 public abstract class Pubblicazione {
     private String titolo;
-    private int annoPubblicazione, giorniPrestito;
+    private int annoPubblicazione, giorniPrestito, numeroPagine;
 
-    public Pubblicazione(int annoPubblicazione, String titolo, int giorniPrestito) {
+    public Pubblicazione(int annoPubblicazione, String titolo, int giorniPrestito, int numeroPagine) {
         this.annoPubblicazione = annoPubblicazione;
         this.titolo = titolo;
         this.giorniPrestito = giorniPrestito;
+        this.numeroPagine = numeroPagine;
+    }
+
+    public int getNumeroPagine()
+    {
+        return numeroPagine;
     }
 
     public String getTitolo() {
