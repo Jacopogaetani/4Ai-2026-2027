@@ -2,6 +2,7 @@ public abstract class Pubblicazione {
     private String titolo;
     private int annoPubblicazione, giorniPrestito, numeroPagine;
 
+    //è necessario che ci sia il metodo affinché possa essere richiamato il super nelle classi che ereditano
     public Pubblicazione(int annoPubblicazione, String titolo, int giorniPrestito, int numeroPagine) {
         this.annoPubblicazione = annoPubblicazione;
         this.titolo = titolo;
@@ -9,6 +10,7 @@ public abstract class Pubblicazione {
         this.numeroPagine = numeroPagine;
     }
 
+    //get
     public int getNumeroPagine()
     {
         return numeroPagine;
@@ -26,10 +28,11 @@ public abstract class Pubblicazione {
         return giorniPrestito;
     }
 
+    //set
     public boolean setGiorniPrestito(int giorniPrestito) {
         if (giorniPrestito > 0) //Controlla che il dato inserito sia maggiore di 0
         {
-            this.giorniPrestito = giorniPrestito;
+            this.giorniPrestito = giorniPrestito; //Assegna il parametro all'attributo solo nel caso i giorni di prestito siano maggiore di 0
             return true; //Uso una booleana per poter "giocare" con le stampe nel main e non pasticciare nel metodo
         } else {
             return false;
@@ -40,7 +43,7 @@ public abstract class Pubblicazione {
         if (this.annoPubblicazione >= 2025) //Uso un int per poter verificare che sia anche più recente del 2026... ci sarebbero certamente tecniche migliori
         {
             return true;
-        } //aggiungere stampa in main
+        }
         else {
             return false;
         }
@@ -51,7 +54,7 @@ public abstract class Pubblicazione {
         return (costoPagina * pagine) + (giorniPrestito * costoGiorno);
     }
 
-    //metodo astratto da dover ridefinire sempre
+    //metodo astratto da dover ridefinire SEMPRE
     public abstract double calcolaCostoPrestito();
 
     //verrà ridefinito in ogni classe che estende pubblicazione
