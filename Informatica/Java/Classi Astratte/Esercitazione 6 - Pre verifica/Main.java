@@ -59,10 +59,20 @@ public class Main{
 
         System.out.println("---------PREONOTAZIONI---------");
 
+        /*for (int i = 0; i <= lista.lenght(); i++)
+            {
+                meglio fare cosi
+                if(lista[i] instance of Libro)
+                {    
+                    Libro l = (Libro) lista[i];
+                    l.prenota();
+                }
+            }*/
         for(Pubblicazione p: lista)
         {
             if (p instanceof Libro || p instanceof Ebook)
             {
+                
                 if(((Prenotabile) p).prenota())
                 {
                     System.out.println(p.getTitolo() + " è prenotabile");
